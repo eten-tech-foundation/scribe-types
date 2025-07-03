@@ -1,0 +1,13 @@
+{
+  "name": "@eten-tech-foundation/scribe-types",
+  "version": "1.0.0",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
