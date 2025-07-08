@@ -3,32 +3,30 @@
 import { BaseEntity } from './common';
 
 export interface User extends BaseEntity {
-  email: string;
   username: string;
+  email: string;
   firstName?: string;
   lastName?: string;
-  profilePicture?: string;
+  role: number; // Role ID (integer) referencing roles.id
+  createdBy?: number; // User ID (integer) referencing users.id
   isActive: boolean;
-  isVerified: boolean;
-  lastLoginAt?: Date;
-  roles: UserRole[];
 }
 
 export interface UserRole {
-  id: string;
+  id: number;
   name: string;
   permissions: Permission[];
 }
 
 export interface Permission {
-  id: string;
+  id: number;
   name: string;
   resource: string;
   action: string;
 }
 
 export interface UserProfile {
-  id: string;
+  id: number;
   email: string;
   username: string;
   firstName?: string;
@@ -37,15 +35,18 @@ export interface UserProfile {
 }
 
 export interface CreateUserRequest {
-  email: string;
   username: string;
-  password: string;
+  email: string;
   firstName?: string;
   lastName?: string;
+  role: number; // Role ID (integer) referencing roles.id
 }
 
 export interface UpdateUserRequest {
+  username?: string;
+  email?: string;
   firstName?: string;
   lastName?: string;
-  profilePicture?: string;
+  role?: number; // Role ID (integer) referencing roles.id
+  isActive?: boolean;
 }

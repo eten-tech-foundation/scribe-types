@@ -1,7 +1,7 @@
 // Common types shared between web and server
 
 export interface BaseEntity {
-  id: string;
+  id: number;
   createdAt: Date;
   updatedAt: Date;
 }
